@@ -7,6 +7,8 @@ var randomButton = document.querySelector('.show-random');
 var makePosterButton = document.querySelector('.show-form');
 var mainPage = document.querySelector('.main-poster');
 var posterForm = document.querySelector('.poster-form');
+var viewSavedPosterButton = document.querySelector('.show-saved');
+var savePosterView = document.querySelector('.saved-posters');
 
 // we've provided you with some data to work with 👇
 
@@ -116,6 +118,7 @@ var currentPoster;
 window.addEventListener('load', renderCoverImage);
 randomButton.addEventListener('click', renderCoverImage);
 makePosterButton.addEventListener('click', renderPosterView);
+viewSavedPosterButton.addEventListener('click', renderSavedView);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -133,4 +136,9 @@ function getRandomIndex(inputRandomList) {
 function renderPosterView() {
   mainPage.classList.add('hidden');
   posterForm.classList.remove('hidden');
+}
+
+function renderSavedView() {
+  mainPage.classList.add('hidden');
+  savePosterView.classList.remove('hidden');
 }
