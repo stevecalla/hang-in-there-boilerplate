@@ -116,6 +116,7 @@ var currentPoster;
 
 // event listeners go here 👇
 
+window.onload = renderCoverImage();
 randomButton.addEventListener('click', renderCoverImage);
 
 // functions and event handlers go here 👇
@@ -126,8 +127,6 @@ function renderCoverImage() {
   randomTitle.innerText = titles[getRandomIndex(titles)];
   randomQuote.innerText = quotes[getRandomIndex(quotes)];
 }
-
-renderCoverImage();
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
