@@ -1,4 +1,15 @@
+// When the page loads, we should see a poster with a randomly selected image, title, and quote
+// We need a function, that accesses the arrays, images, titles and quotes randomly.
+// Saves the result to a variable. That variable is the default used by the HTML.
+// The variable targets elements of index.html, img, title, quote.
+// Every time the user clicks the Show Random Poster button, a new random poster is displayed.
+// Connects the button on the HTML to the saved variable.
+
 // query selector variables go here 👇
+
+var randomImage = document.querySelector('.poster-img');
+var randomTitle = document.querySelector('.poster-title');
+var randomQuote = document.querySelector('.poster-quote');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -98,6 +109,7 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
+
 var savedPosters = [];
 var currentPoster;
 
@@ -105,7 +117,15 @@ var currentPoster;
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
+
+function renderCoverImage() {
+  randomImage.src = images[getRandomIndex(images)];
+  randomTitle.innerText = titles[getRandomIndex(titles)];
+  randomQuote.innerText = quotes[getRandomIndex(quotes)];
+}
+
+renderCoverImage();
+
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-
