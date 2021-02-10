@@ -116,7 +116,7 @@ var currentPoster;
 
 // event listeners go here 👇
 
-window.onload = renderCoverImage();
+window.addEventListener('load', renderCoverImage);
 randomButton.addEventListener('click', renderCoverImage);
 
 // functions and event handlers go here 👇
