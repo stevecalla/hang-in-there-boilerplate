@@ -154,7 +154,8 @@ function saveMyPoster(event) {
   images.push(inputPosterImage.value);
   titles.push(inputPosterTitle.value);
   quotes.push(inputPosterQuote.value);
-  //
+  // render main page from poster form
+  renderMainPageFromPosterForm();
 }
 
 function renderPosterView() {
