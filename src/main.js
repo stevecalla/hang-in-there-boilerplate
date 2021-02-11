@@ -4,13 +4,20 @@ var randomImage = document.querySelector('.poster-img');
 var randomTitle = document.querySelector('.poster-title');
 var randomQuote = document.querySelector('.poster-quote');
 var randomButton = document.querySelector('.show-random');
-var makePosterButton = document.querySelector('.show-form');
+var viewPosterButton = document.querySelector('.show-form');
 var mainPage = document.querySelector('.main-poster');
 var posterForm = document.querySelector('.poster-form');
 var viewSavedPosterButton = document.querySelector('.show-saved');
 var savePosterView = document.querySelector('.saved-posters');
 var posterFormBackButton = document.querySelector('.show-main');
 var saveViewMainButton = document.querySelector('.back-to-main');
+
+var inputPosterImage = document.querySelector('#poster-image-url');
+var inputPosterTitle = document.querySelector('#poster-title');
+var inputPosterQuote = document.querySelector('#poster-quote');
+var makePosterButton = document.querySelector('.make-poster');
+
+// var inputFormSection = document.querySelector('.poster-form');
 
 // we've provided you with some data to work with 👇
 
@@ -115,14 +122,21 @@ var quotes = [
 var savedPosters = [];
 var currentPoster; //consider eliminating this global variable?
 
-// event listeners go here 👇
+//add class to form input-form
+//target that class w/ variable inputFormSection
+//add event listener with 'submit'
+//event argument as an argument
 
+//event listeners go here 👇
 window.addEventListener('load', createPoster); //change
 randomButton.addEventListener('click', createPoster); //change
-makePosterButton.addEventListener('click', renderPosterView);
+viewPosterButton.addEventListener('click', renderPosterView);
 viewSavedPosterButton.addEventListener('click', renderSavedView);
 posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
 saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
+makePosterButton.addEventListener('click', saveMyPoster);
+
+posterForm.addEventListener('submit', saveMyPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -140,6 +154,12 @@ function renderCoverImage(createPoster) {
 
 function getRandomIndex(inputRandomList) {
   return Math.floor(Math.random() * inputRandomList.length);
+}
+
+function saveMyPoster(event) {
+  event.preventDefault();
+  currentPoster = new Poster(inputPosterImage.value, inputPosterTitle.value, inputPosterQuote.value);
+  console.log(currentPoster)
 }
 
 function renderPosterView() {
