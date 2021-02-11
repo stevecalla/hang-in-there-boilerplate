@@ -113,12 +113,12 @@ var quotes = [
 ];
 
 var savedPosters = [];
-var currentPoster;
+var currentPoster; //consider eliminating this global variable?
 
 // event listeners go here 👇
 
-window.addEventListener('load', renderCoverImage);
-randomButton.addEventListener('click', renderCoverImage);
+window.addEventListener('load', createPoster); //change
+randomButton.addEventListener('click', createPoster); //change
 makePosterButton.addEventListener('click', renderPosterView);
 viewSavedPosterButton.addEventListener('click', renderSavedView);
 posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
@@ -127,10 +127,15 @@ saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 
-function renderCoverImage() {
-  randomImage.src = images[getRandomIndex(images)];
-  randomTitle.innerText = titles[getRandomIndex(titles)];
-  randomQuote.innerText = quotes[getRandomIndex(quotes)];
+function createPoster() {
+  currentPoster = new Poster(images[getRandomIndex(images)], titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
+  renderCoverImage(currentPoster);
+}
+
+function renderCoverImage(createPoster) {
+  randomImage.src = createPoster.imageURL;
+  randomTitle.innerText = createPoster.title;
+  randomQuote.innerText = createPoster.quote;
 }
 
 function getRandomIndex(inputRandomList) {
