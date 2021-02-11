@@ -9,8 +9,8 @@ var mainPage = document.querySelector('.main-poster');
 var posterForm = document.querySelector('.poster-form');
 var viewSavedPosterButton = document.querySelector('.show-saved');
 var savePosterView = document.querySelector('.saved-posters');
-var backToMainButton = document.querySelector('.show-main');
-var backToMainButton2 = document.querySelector('.back-to-main');
+var posterFormBackButton = document.querySelector('.show-main');
+var saveViewMainButton = document.querySelector('.back-to-main');
 
 // we've provided you with some data to work with 👇
 
@@ -121,8 +121,8 @@ window.addEventListener('load', renderCoverImage);
 randomButton.addEventListener('click', renderCoverImage);
 makePosterButton.addEventListener('click', renderPosterView);
 viewSavedPosterButton.addEventListener('click', renderSavedView);
-backToMainButton.addEventListener('click', renderMainPage);
-backToMainButton2.addEventListener('click', renderMainPage2);
+posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
+saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -140,19 +140,23 @@ function getRandomIndex(inputRandomList) {
 function renderPosterView() {
   mainPage.classList.add('hidden');
   posterForm.classList.remove('hidden');
+  savePosterView.classList.add('hidden');
 }
 
 function renderSavedView() {
   mainPage.classList.add('hidden');
+  posterForm.classList.add('hidden');
   savePosterView.classList.remove('hidden');
 }
 
-function renderMainPage() {
+function renderMainPageFromPosterForm() {
   mainPage.classList.remove('hidden');
+  posterForm.classList.add('hidden');
   savePosterView.classList.add('hidden');
 }
 
-function renderMainPage2() {
+function renderMainPageFromSavedView() {
   mainPage.classList.remove('hidden');
   posterForm.classList.add('hidden');
+  savePosterView.classList.add('hidden');
 }
