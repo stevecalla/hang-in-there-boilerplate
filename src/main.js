@@ -137,10 +137,10 @@ function createPoster() {
   renderCoverImage(currentPoster);
 }
 
-function renderCoverImage(createPoster) {
-  randomImage.src = createPoster.imageURL;
-  randomTitle.innerText = createPoster.title;
-  randomQuote.innerText = createPoster.quote;
+function renderCoverImage() {
+  randomImage.src = currentPoster.imageURL;
+  randomTitle.innerText = currentPoster.title;
+  randomQuote.innerText = currentPoster.quote;
 }
 
 function getRandomIndex(inputRandomList) {
@@ -156,6 +156,11 @@ function saveMyPoster(event) {
   quotes.push(inputPosterQuote.value);
   // render main page from poster form
   renderMainPageFromPosterForm();
+  // render the new poster on the main page
+  randomImage.src = currentPoster.imageURL;
+  randomTitle.innerText = currentPoster.title;
+  randomQuote.innerText = currentPoster.quote;
+  // renderCoverImage();
 }
 
 function renderPosterView() {
