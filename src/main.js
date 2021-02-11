@@ -1,5 +1,4 @@
 // query selector variables go here 👇
-
 var randomImage = document.querySelector('.poster-img');
 var randomTitle = document.querySelector('.poster-title');
 var randomQuote = document.querySelector('.poster-quote');
@@ -11,7 +10,6 @@ var viewSavedPosterButton = document.querySelector('.show-saved');
 var savePosterView = document.querySelector('.saved-posters');
 var posterFormBackButton = document.querySelector('.show-main');
 var saveViewMainButton = document.querySelector('.back-to-main');
-
 var inputPosterImage = document.querySelector('#poster-image-url');
 var inputPosterTitle = document.querySelector('#poster-title');
 var inputPosterQuote = document.querySelector('#poster-quote');
@@ -150,17 +148,15 @@ function getRandomIndex(inputRandomList) {
 function saveMyPoster(event) {
   event.preventDefault();
   currentPoster = new Poster(inputPosterImage.value, inputPosterTitle.value, inputPosterQuote.value);
-  //push into each array
+  savePosterInput();
+  renderMainPageFromPosterForm();
+  renderCoverImage();
+}
+
+function savePosterInput() {
   images.push(inputPosterImage.value);
   titles.push(inputPosterTitle.value);
   quotes.push(inputPosterQuote.value);
-  // render main page from poster form
-  renderMainPageFromPosterForm();
-  // render the new poster on the main page
-  randomImage.src = currentPoster.imageURL;
-  randomTitle.innerText = currentPoster.title;
-  randomQuote.innerText = currentPoster.quote;
-  // renderCoverImage();
 }
 
 function renderPosterView() {
