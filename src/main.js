@@ -17,8 +17,6 @@ var inputPosterTitle = document.querySelector('#poster-title');
 var inputPosterQuote = document.querySelector('#poster-quote');
 var makePosterButton = document.querySelector('.make-poster');
 
-// var inputFormSection = document.querySelector('.poster-form');
-
 // we've provided you with some data to work with 👇
 
 var images = [
@@ -120,12 +118,7 @@ var quotes = [
 ];
 
 var savedPosters = [];
-var currentPoster; //consider eliminating this global variable?
-
-//add class to form input-form
-//target that class w/ variable inputFormSection
-//add event listener with 'submit'
-//event argument as an argument
+var currentPoster;
 
 //event listeners go here 👇
 window.addEventListener('load', createPoster); //change
@@ -135,8 +128,6 @@ viewSavedPosterButton.addEventListener('click', renderSavedView);
 posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
 saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
 makePosterButton.addEventListener('click', saveMyPoster);
-
-posterForm.addEventListener('submit', saveMyPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -159,7 +150,11 @@ function getRandomIndex(inputRandomList) {
 function saveMyPoster(event) {
   event.preventDefault();
   currentPoster = new Poster(inputPosterImage.value, inputPosterTitle.value, inputPosterQuote.value);
-  console.log(currentPoster)
+  //push into each array
+  images.push(inputPosterImage.value);
+  titles.push(inputPosterTitle.value);
+  quotes.push(inputPosterQuote.value);
+  //
 }
 
 function renderPosterView() {
