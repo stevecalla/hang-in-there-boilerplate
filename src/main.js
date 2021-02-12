@@ -15,8 +15,7 @@ var inputPosterTitle = document.querySelector('#poster-title');
 var inputPosterQuote = document.querySelector('#poster-quote');
 var makePosterButton = document.querySelector('.make-poster');
 var savePosterButton = document.querySelector('.save-poster');
-var savedPostGrid = document.querySelector('.saved-posters-grid');
-//var savedPosterOutput = document.querySelector('.mini-poster');
+// var savedPosterOutput = document.querySelector('.mini-poster');
 
 // we've provided you with some data to work with 👇
 
@@ -130,7 +129,6 @@ posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
 saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
 makePosterButton.addEventListener('click', saveMyPoster);
 savePosterButton.addEventListener('click', savePosterOutput);
-//savedPosterOutput.addEventListener('click', removePoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -174,28 +172,39 @@ function savePosterOutput() {
 
 function renderPosterOutput() {
   //this has to pull posters from the savedPosterArray; not the current poster
-  // savedPosters = [];
-  savedPostGrid.innerHTML = "";
+  savedPosterGrid.innerHTML = "";
   for (var i = 0; i < savedPosters.length; i++) {
-    savedPostGrid.innerHTML += `
-      <article class="mini-poster">
+    savedPosterGrid.innerHTML += 
+      `<article class="mini-poster" id=${savedPosters[i].id}>
         <img class="poster-img" src="${savedPosters[i].imageURL}" alt="nothin' to see here">
         <h1 class="poster-title">${savedPosters[i].title}</h1>
         <h3 class="poster-quote">${savedPosters[i].quote}</h3>
       </article>
-      `
-  }
+      `;
+  };
 }
+var savedPosterGrid = document.querySelector('.saved-posters-grid');
+savedPosterGrid.addEventListener('dblclick', deletePoster);
 
-function removePoster(event) {
-  var x = event.target.closest('.mini-poster');
+function deletePoster(event) {
+  var clickedSavedPoster = event.target.closest('.mini-poster');
   for (i = 0; i < savedPosters.length; i++) {
-    if (savedPosters[i].id === Number(x.id)) {
+    if (savedPosters[i].id === Number(clickedSavedPoster.id)) {
       savedPosters.splice(i, 1);
-    }
-  }
+    };
+  };
   renderPosterOutput();
 }
+
+// function deletePoster(event) {
+//   if (event.target.classList.contains('mini-poster')) {
+//     event.target.closest('article').remove();
+//     parentNode.remove();
+//     // savedPosterGrid.parentNode.remove();
+//     // savedPosters.shift();
+//   }
+//   renderPosterOutput();
+// };
 
 function renderPosterView() {
   mainPage.classList.add('hidden');
