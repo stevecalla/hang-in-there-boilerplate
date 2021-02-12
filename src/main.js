@@ -16,6 +16,7 @@ var inputPosterQuote = document.querySelector('#poster-quote');
 var makePosterButton = document.querySelector('.make-poster');
 var savePosterButton = document.querySelector('.save-poster');
 var savedPostGrid = document.querySelector('.saved-posters-grid');
+//var savedPosterOutput = document.querySelector('.mini-poster');
 
 // we've provided you with some data to work with 👇
 
@@ -129,6 +130,7 @@ posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
 saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
 makePosterButton.addEventListener('click', saveMyPoster);
 savePosterButton.addEventListener('click', savePosterOutput);
+//savedPosterOutput.addEventListener('click', removePoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -172,12 +174,22 @@ function savePosterOutput() {
 
 function renderPosterOutput() {
   savedPostGrid.innerHTML += `
-    <article class="poster">
+    <article class="mini-poster">
       <img class="poster-img" src="${currentPoster.imageURL}" alt="nothin' to see here">
       <h1 class="poster-title">${currentPoster.title}</h1>
       <h3 class="poster-quote">${currentPoster.quote}</h3>
     </article>
     `
+}
+
+function removePoster() {
+  var x = event.target.closest('.mini-poster');
+  for (i = 0; i < savedPosters.length; i++) {
+    if (savedPosters[i].id === Number(x.id)) {
+      savedPosters.splice(i, 1);
+    }
+  }
+  renderPosterOutput();
 }
 
 function renderPosterView() {
