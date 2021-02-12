@@ -15,11 +15,9 @@ var inputPosterTitle = document.querySelector('#poster-title');
 var inputPosterQuote = document.querySelector('#poster-quote');
 var makePosterButton = document.querySelector('.make-poster');
 var savePosterButton = document.querySelector('.save-poster');
-var savedPostGrid = document.querySelector('.saved-posters-grid');
-//var savedPosterOutput = document.querySelector('.mini-poster');
+var savedPosterGrid = document.querySelector('.saved-posters-grid');
 
 // we've provided you with some data to work with 👇
-
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -122,15 +120,15 @@ var savedPosters = [];
 var currentPoster;
 
 //event listeners go here 👇
-window.addEventListener('load', createPoster); //change
-randomButton.addEventListener('click', createPoster); //change
+window.addEventListener('load', createPoster);
+randomButton.addEventListener('click', createPoster);
 viewPosterButton.addEventListener('click', renderPosterView);
 viewSavedPosterButton.addEventListener('click', renderSavedView);
 posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
 saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
 makePosterButton.addEventListener('click', saveMyPoster);
 savePosterButton.addEventListener('click', savePosterOutput);
-//savedPosterOutput.addEventListener('click', removePoster);
+savedPosterGrid.addEventListener('dblclick', deletePoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -173,22 +171,25 @@ function savePosterOutput() {
 }
 
 function renderPosterOutput() {
-  savedPostGrid.innerHTML += `
-    <article class="mini-poster">
-      <img class="poster-img" src="${currentPoster.imageURL}" alt="nothin' to see here">
-      <h1 class="poster-title">${currentPoster.title}</h1>
-      <h3 class="poster-quote">${currentPoster.quote}</h3>
-    </article>
-    `
+  savedPosterGrid.innerHTML = "";
+  for (var i = 0; i < savedPosters.length; i++) {
+    savedPosterGrid.innerHTML += 
+      `<article class="mini-poster" id=${savedPosters[i].id}>
+        <img class="poster-img" src="${savedPosters[i].imageURL}" alt="nothin' to see here">
+        <h1 class="poster-title">${savedPosters[i].title}</h1>
+        <h3 class="poster-quote">${savedPosters[i].quote}</h3>
+      </article>
+      `;
+  };
 }
 
-function removePoster() {
-  var x = event.target.closest('.mini-poster');
+function deletePoster(event) {
+  var clickedSavedPoster = event.target.closest('.mini-poster');
   for (i = 0; i < savedPosters.length; i++) {
-    if (savedPosters[i].id === Number(x.id)) {
+    if (savedPosters[i].id === Number(clickedSavedPoster.id)) {
       savedPosters.splice(i, 1);
-    }
-  }
+    };
+  };
   renderPosterOutput();
 }
 
