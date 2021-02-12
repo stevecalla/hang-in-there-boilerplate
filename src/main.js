@@ -15,10 +15,9 @@ var inputPosterTitle = document.querySelector('#poster-title');
 var inputPosterQuote = document.querySelector('#poster-quote');
 var makePosterButton = document.querySelector('.make-poster');
 var savePosterButton = document.querySelector('.save-poster');
-// var savedPosterOutput = document.querySelector('.mini-poster');
+var savedPosterGrid = document.querySelector('.saved-posters-grid');
 
 // we've provided you with some data to work with 👇
-
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -121,14 +120,15 @@ var savedPosters = [];
 var currentPoster;
 
 //event listeners go here 👇
-window.addEventListener('load', createPoster); //change
-randomButton.addEventListener('click', createPoster); //change
+window.addEventListener('load', createPoster);
+randomButton.addEventListener('click', createPoster);
 viewPosterButton.addEventListener('click', renderPosterView);
 viewSavedPosterButton.addEventListener('click', renderSavedView);
 posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
 saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
 makePosterButton.addEventListener('click', saveMyPoster);
 savePosterButton.addEventListener('click', savePosterOutput);
+savedPosterGrid.addEventListener('dblclick', deletePoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -171,7 +171,6 @@ function savePosterOutput() {
 }
 
 function renderPosterOutput() {
-  //this has to pull posters from the savedPosterArray; not the current poster
   savedPosterGrid.innerHTML = "";
   for (var i = 0; i < savedPosters.length; i++) {
     savedPosterGrid.innerHTML += 
@@ -183,8 +182,6 @@ function renderPosterOutput() {
       `;
   };
 }
-var savedPosterGrid = document.querySelector('.saved-posters-grid');
-savedPosterGrid.addEventListener('dblclick', deletePoster);
 
 function deletePoster(event) {
   var clickedSavedPoster = event.target.closest('.mini-poster');
@@ -195,16 +192,6 @@ function deletePoster(event) {
   };
   renderPosterOutput();
 }
-
-// function deletePoster(event) {
-//   if (event.target.classList.contains('mini-poster')) {
-//     event.target.closest('article').remove();
-//     parentNode.remove();
-//     // savedPosterGrid.parentNode.remove();
-//     // savedPosters.shift();
-//   }
-//   renderPosterOutput();
-// };
 
 function renderPosterView() {
   mainPage.classList.add('hidden');
