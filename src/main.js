@@ -14,6 +14,8 @@ var inputPosterImage = document.querySelector('#poster-image-url');
 var inputPosterTitle = document.querySelector('#poster-title');
 var inputPosterQuote = document.querySelector('#poster-quote');
 var makePosterButton = document.querySelector('.make-poster');
+var savePosterButton = document.querySelector('.save-poster');
+var savedPostGrid = document.querySelector('.saved-posters-grid');
 
 // we've provided you with some data to work with 👇
 
@@ -126,6 +128,7 @@ viewSavedPosterButton.addEventListener('click', renderSavedView);
 posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
 saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
 makePosterButton.addEventListener('click', saveMyPoster);
+savePosterButton.addEventListener('click', savePosterOutput);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -157,6 +160,24 @@ function savePosterInput() {
   images.push(inputPosterImage.value);
   titles.push(inputPosterTitle.value);
   quotes.push(inputPosterQuote.value);
+}
+
+function savePosterOutput() {
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.push(currentPoster);
+  };
+  renderSavedView();
+  renderPosterOutput();
+}
+
+function renderPosterOutput() {
+  savedPostGrid.innerHTML += `
+    <article class="poster">
+      <img class="poster-img" src="${currentPoster.imageURL}" alt="nothin' to see here">
+      <h1 class="poster-title">${currentPoster.title}</h1>
+      <h3 class="poster-quote">${currentPoster.quote}</h3>
+    </article>
+    `
 }
 
 function renderPosterView() {
