@@ -173,16 +173,21 @@ function savePosterOutput() {
 }
 
 function renderPosterOutput() {
-  savedPostGrid.innerHTML += `
-    <article class="mini-poster">
-      <img class="poster-img" src="${currentPoster.imageURL}" alt="nothin' to see here">
-      <h1 class="poster-title">${currentPoster.title}</h1>
-      <h3 class="poster-quote">${currentPoster.quote}</h3>
-    </article>
-    `
+  //this has to pull posters from the savedPosterArray; not the current poster
+  // savedPosters = [];
+  savedPostGrid.innerHTML = "";
+  for (var i = 0; i < savedPosters.length; i++) {
+    savedPostGrid.innerHTML += `
+      <article class="mini-poster">
+        <img class="poster-img" src="${savedPosters[i].imageURL}" alt="nothin' to see here">
+        <h1 class="poster-title">${savedPosters[i].title}</h1>
+        <h3 class="poster-quote">${savedPosters[i].quote}</h3>
+      </article>
+      `
+  }
 }
 
-function removePoster() {
+function removePoster(event) {
   var x = event.target.closest('.mini-poster');
   for (i = 0; i < savedPosters.length; i++) {
     if (savedPosters[i].id === Number(x.id)) {
