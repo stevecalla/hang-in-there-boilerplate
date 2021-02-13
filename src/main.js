@@ -1,23 +1,41 @@
 // query selector variables go here 👇
+
 var randomImage = document.querySelector('.poster-img');
+
 var randomTitle = document.querySelector('.poster-title');
+
 var randomQuote = document.querySelector('.poster-quote');
+
 var randomButton = document.querySelector('.show-random');
+
 var viewPosterButton = document.querySelector('.show-form');
+
 var mainPage = document.querySelector('.main-poster');
+
 var posterForm = document.querySelector('.poster-form');
+
 var viewSavedPosterButton = document.querySelector('.show-saved');
+
 var savePosterView = document.querySelector('.saved-posters');
+
 var posterFormBackButton = document.querySelector('.show-main');
+
 var saveViewMainButton = document.querySelector('.back-to-main');
+
 var inputPosterImage = document.querySelector('#poster-image-url');
+
 var inputPosterTitle = document.querySelector('#poster-title');
+
 var inputPosterQuote = document.querySelector('#poster-quote');
+
 var makePosterButton = document.querySelector('.make-poster');
+
 var savePosterButton = document.querySelector('.save-poster');
+
 var savedPosterGrid = document.querySelector('.saved-posters-grid');
 
 // we've provided you with some data to work with 👇
+
 var images = [ 
   { url: "./assets/bees.jpg",
     altText: "inspirational image of bees",
@@ -165,14 +183,23 @@ var savedPosters = [];
 var currentPoster;
 
 //event listeners go here 👇
+
 window.addEventListener('load', createPoster);
+
 randomButton.addEventListener('click', createPoster);
+
 viewPosterButton.addEventListener('click', renderPosterView);
+
 viewSavedPosterButton.addEventListener('click', renderSavedView);
+
 posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
+
 saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
+
 makePosterButton.addEventListener('click', saveMyPoster);
+
 savePosterButton.addEventListener('click', savePosterActions); //NEW
+
 savedPosterGrid.addEventListener('dblclick', deleteSavedPoster);
 
 // functions and event handlers go here 👇
