@@ -98,7 +98,16 @@ var images = [
     altText: "inspirational image of a glow worm",
   },
   { url: "https://thumbs.gfycat.com/GracefulAromaticHomalocephale-size_restricted.gif",
-    altText: "inspirational image of a glow worms",
+    altText: "inspirational image of glow worms",
+  },
+  { url: "https://media1.giphy.com/media/3o85xAg8LCrPOHxyMM/source.gif",
+    altText: "inspirational image of a glow worm",
+  },
+  { url: "https://i.pinimg.com/originals/a9/84/ee/a984eeafaa400a68388eeb6288bd5b4e.gif",
+    altText: "inspirational image of a person dancing",
+  },
+  { url: "https://media4.giphy.com/media/26BRwMuMYXHLgyjTi/giphy.gif",
+    altText: "inspirational image of candy glow worms",
   },
 ];
 var titles = [
