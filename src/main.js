@@ -18,25 +18,70 @@ var savePosterButton = document.querySelector('.save-poster');
 var savedPosterGrid = document.querySelector('.saved-posters-grid');
 
 // we've provided you with some data to work with 👇
-var images = [
-  "./assets/bees.jpg",
-  "./assets/bridge.jpg",
-  "./assets/butterfly.jpg",
-  "./assets/cliff.jpg",
-  "./assets/elephant.jpg",
-  "./assets/flock.jpg",
-  "./assets/fox.jpg",
-  "./assets/frog.jpg",
-  "./assets/horse.jpg",
-  "./assets/lion.jpg",
-  "./assets/mountain.jpg",
-  "./assets/pier.jpg",
-  "./assets/puffins.jpg",
-  "./assets/pug.jpg",
-  "./assets/runner.jpg",
-  "./assets/squirrel.jpg",
-  "./assets/tiger.jpg",
-  "./assets/turtle.jpg"
+var images = [ 
+  { url: "./assets/bees.jpg",
+    altText: "inspirational image of bees",
+  },
+  { url: "./assets/bridge.jpg",
+    altText: "inspirational image of a bridge",
+  },
+  { url:  "./assets/butterfly.jpg",
+    altText: "inspirational image of a butterfly",
+  },
+  { url: "./assets/cliff.jpg",
+    altText: "inspirational image of a cliff",
+  },
+  { url: "./assets/elephant.jpg",
+    altText: "inspirational image of a elephant",
+  },
+  { url: "./assets/flock.jpg",
+    altText: "inspirational image of a flock",
+  },
+  { url: "./assets/fox.jpg",
+    altText: "inspirational image of a fox",
+  },
+  { url: "./assets/frog.jpg",
+    altText: "inspirational image of a frog",
+  },
+  { url: "./assets/horse.jpg",
+    altText: "inspirational image of a horse",
+  },
+  { url: "./assets/lion.jpg",
+    altText: "inspirational image of a lion",
+  },
+  { url: "./assets/mountain.jpg",
+    altText: "inspirational image of a mountain",
+  },
+  { url: "./assets/pier.jpg",
+    altText: "inspirational image of a pier",
+  },
+  { url: "./assets/puffins.jpg",
+    altText: "inspirational image of a puffins",
+  },
+  { url: "./assets/pug.jpg",
+    altText: "inspirational image of a pug",
+  },
+  { url: "./assets/runner.jpg",
+    altText: "inspirational image of a runner",
+  },
+  { url: "./assets/squirrel.jpg",
+    altText: "inspirational image of a squirrel",
+  },
+  { url: "./assets/tiger.jpg",
+    altText: "inspirational image of a tiger",
+  },
+  { url: "./assets/turtle.jpg",
+    altText: "inspirational image of a turtle",
+  },
+  { url: "https://news.umanitoba.ca/wp-content/uploads/2020/04/Gratitude-MainImage-1200x900.jpg",
+    altText: "inspirational image of a gratitude",
+  },
+  { url: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/c5bea540860021.578fdf9928321.gif",
+    altText: "inspirational image of a glow worm",
+  },
+  { url: "https://thumbs.gfycat.com/GracefulAromaticHomalocephale-size_restricted.gif",
+    altText: "inspirational image of a glow worms",
+  },
 ];
 var titles = [
   "determination",
@@ -134,12 +179,14 @@ savedPosterGrid.addEventListener('dblclick', deletePoster);
 // (we've provided one for you to get you started)!
 
 function createPoster() {
-  currentPoster = new Poster(images[getRandomIndex(images)], titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
+  var imageRandomNumber = getRandomIndex(images);
+  currentPoster = new Poster(images[imageRandomNumber].url, images[imageRandomNumber].altText, titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
   renderCoverImage(currentPoster);
 }
 
 function renderCoverImage() {
   randomImage.src = currentPoster.imageURL;
+  randomImage.alt = currentPoster.altTxt;
   randomTitle.innerText = currentPoster.title;
   randomQuote.innerText = currentPoster.quote;
 }
@@ -175,7 +222,7 @@ function renderPosterOutput() {
   for (var i = 0; i < savedPosters.length; i++) {
     savedPosterGrid.innerHTML += 
       `<article class="mini-poster" id=${savedPosters[i].id}>
-        <img class="poster-img" src="${savedPosters[i].imageURL}" alt="nothin' to see here">
+        <img class="poster-img" src="${savedPosters[i].imageURL}" alt="${savedPosters[i].altTxt}">
         <h1 class="poster-title">${savedPosters[i].title}</h1>
         <h3 class="poster-quote">${savedPosters[i].quote}</h3>
       </article>
