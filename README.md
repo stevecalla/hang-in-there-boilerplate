@@ -11,7 +11,7 @@ A [Front-End Project] by [Steve Calla](https://github.com/stevecalla) & [Robert 
 5. [Contributors](#contributors)
 6. [Resources](#resources)
 
-## Overview - INTENTION TIMER
+## Overview
 
 The Poster Generator website allows users to generate and save random/non-random image, title, quote combinations to create motivational posters.  
 
