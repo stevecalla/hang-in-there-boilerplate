@@ -36,8 +36,9 @@ The Poster Generator website allows users to generate and save random/non-random
 
 ## Contributors
 
-* [Robert DeRouin](https://github.com/robertjosephderouin)
-* [Steve Calla](https://github.com/stevecalla)
+* Co-Creator: [Robert DeRouin](https://github.com/robertjosephderouin)
+* Co-Creator:[Steve Calla](https://github.com/stevecalla)
+* Formal Code Review: [Paige Vannelli](https://github.com/PaigeVannelli/PaigeVannelli)
 * Project Manager: [Hannah Hudson](https://github.com/hannahhch)
 
 ## Resources
