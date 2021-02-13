@@ -192,9 +192,9 @@ viewPosterButton.addEventListener('click', renderPosterView);
 
 viewSavedPosterButton.addEventListener('click', renderSavedView);
 
-posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
+posterFormBackButton.addEventListener('click', renderMainPage);
 
-saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
+saveViewMainButton.addEventListener('click', renderMainPage);
 
 makePosterButton.addEventListener('click', saveMyPoster);
 
@@ -290,14 +290,14 @@ function renderSavedView() { //NEW
   show(savePosterView);
 }
 
-function renderMainPageFromPosterForm() { //NEW
+function renderMainPage() { //NEW
   show(mainPage);
   hide(posterForm);
   hide(savePosterView);
 }
 
-function renderMainPageFromSavedView() { //NEW ... combine w/ above
-  show(mainPage);
-  hide(posterForm);
-  hide(savePosterView);
-}
+// function renderMainPageFromSavedView() { //NEW ... combine w/ above
+//   show(mainPage);
+//   hide(posterForm);
+//   hide(savePosterView);
+// }
