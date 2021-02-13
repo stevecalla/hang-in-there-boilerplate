@@ -118,7 +118,7 @@ var titles = [
   "smile",
   "trust",
   "understanding",
-  "wisdom"
+  "wisdom",
 ];
 var quotes = [
   "Don’t downgrade your dream just to fit your reality, upgrade your conviction to match your destiny.",
@@ -158,7 +158,7 @@ var quotes = [
   "If you have good thoughts they will shine out of your face like sunbeams and you will always look lovely.",
   "No matter what people tell you, words and ideas can change the world.",
   "Each person must live their life as a model for others.",
-  "A champion is defined not by their wins but by how they can recover when they fall."
+  "A champion is defined not by their wins but by how they can recover when they fall.",
 ];
 
 var savedPosters = [];
@@ -172,21 +172,20 @@ viewSavedPosterButton.addEventListener('click', renderSavedView);
 posterFormBackButton.addEventListener('click', renderMainPageFromPosterForm);
 saveViewMainButton.addEventListener('click', renderMainPageFromSavedView);
 makePosterButton.addEventListener('click', saveMyPoster);
-savePosterButton.addEventListener('click', savePosterOutput);
-savedPosterGrid.addEventListener('dblclick', deletePoster);
+savePosterButton.addEventListener('click', savePosterActions); //NEW
+savedPosterGrid.addEventListener('dblclick', deleteSavedPoster);
 
 // functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
 
 function createPoster() {
-  var imageRandomNumber = getRandomIndex(images);
+  var imageRandomNumber = getRandomIndex(images); //NEW
   currentPoster = new Poster(images[imageRandomNumber].url, images[imageRandomNumber].altText, titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
   renderCoverImage(currentPoster);
 }
 
 function renderCoverImage() {
   randomImage.src = currentPoster.imageURL;
-  randomImage.alt = currentPoster.altTxt;
+  randomImage.alt = currentPoster.altTxt; //NEW
   randomTitle.innerText = currentPoster.title;
   randomQuote.innerText = currentPoster.quote;
 }
@@ -209,15 +208,19 @@ function savePosterInput() {
   quotes.push(inputPosterQuote.value);
 }
 
-function savePosterOutput() {
+function savePosterActions() { //NEW
+  savePosters();
+  renderSavedView();
+  renderSavedPoster();
+}
+
+function savePosters() { //NEW
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.push(currentPoster);
   };
-  renderSavedView();
-  renderPosterOutput();
 }
 
-function renderPosterOutput() {
+function renderSavedPoster() {
   savedPosterGrid.innerHTML = "";
   for (var i = 0; i < savedPosters.length; i++) {
     savedPosterGrid.innerHTML += 
@@ -226,47 +229,47 @@ function renderPosterOutput() {
         <h1 class="poster-title">${savedPosters[i].title}</h1>
         <h3 class="poster-quote">${savedPosters[i].quote}</h3>
       </article>
-      `;
+      `; //NEW
   };
 }
 
-function deletePoster(event) {
+function deleteSavedPoster(event) {
   var clickedSavedPoster = event.target.closest('.mini-poster');
   for (i = 0; i < savedPosters.length; i++) {
     if (savedPosters[i].id === Number(clickedSavedPoster.id)) {
       savedPosters.splice(i, 1);
     };
   };
-  renderPosterOutput();
+  renderSavedPoster();
 }
 
-function show(element) {
+function show(element) { //NEW
   element.classList.remove('hidden');
 }
 
-function hide(element) {
+function hide(element) { //NEW
   element.classList.add('hidden');
 }
 
-function renderPosterView() {
+function renderPosterView() { //NEW
   hide(mainPage);
   show(posterForm);
   hide(savePosterView);
 }
 
-function renderSavedView() {
+function renderSavedView() { //NEW
   hide(mainPage);
   hide(posterForm);
   show(savePosterView);
 }
 
-function renderMainPageFromPosterForm() {
+function renderMainPageFromPosterForm() { //NEW
   show(mainPage);
   hide(posterForm);
   hide(savePosterView);
 }
 
-function renderMainPageFromSavedView() {
+function renderMainPageFromSavedView() { //NEW ... combine w/ above
   show(mainPage);
   hide(posterForm);
   hide(savePosterView);
