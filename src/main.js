@@ -193,26 +193,34 @@ function deletePoster(event) {
   renderPosterOutput();
 }
 
+function show(element) {
+  element.classList.remove('hidden');
+}
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
 function renderPosterView() {
-  mainPage.classList.add('hidden');
-  posterForm.classList.remove('hidden');
-  savePosterView.classList.add('hidden');
+  hide(mainPage);
+  show(posterForm);
+  hide(savePosterView);
 }
 
 function renderSavedView() {
-  mainPage.classList.add('hidden');
-  posterForm.classList.add('hidden');
-  savePosterView.classList.remove('hidden');
+  hide(mainPage);
+  hide(posterForm);
+  show(savePosterView);
 }
 
 function renderMainPageFromPosterForm() {
-  mainPage.classList.remove('hidden');
-  posterForm.classList.add('hidden');
-  savePosterView.classList.add('hidden');
+  show(mainPage);
+  hide(posterForm);
+  hide(savePosterView);
 }
 
 function renderMainPageFromSavedView() {
-  mainPage.classList.remove('hidden');
-  posterForm.classList.add('hidden');
-  savePosterView.classList.add('hidden');
+  show(mainPage);
+  hide(posterForm);
+  hide(savePosterView);
 }
