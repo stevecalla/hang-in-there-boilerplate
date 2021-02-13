@@ -261,9 +261,9 @@ function renderSavedPoster() {
   for (var i = 0; i < savedPosters.length; i++) {
     savedPosterGrid.innerHTML += 
       `<article class="mini-poster" id=${savedPosters[i].id}>
-        <img class="poster-img" src="${savedPosters[i].imageURL}" alt="${savedPosters[i].altTxt}">
-        <h1 class="poster-title">${savedPosters[i].title}</h1>
-        <h3 class="poster-quote">${savedPosters[i].quote}</h3>
+        <img src="${savedPosters[i].imageURL}" alt="${savedPosters[i].altTxt}">
+        <h2>${savedPosters[i].title}</h2>
+        <h4>${savedPosters[i].quote}</h4>
       </article>
       `; //NEW
   };
@@ -271,6 +271,8 @@ function renderSavedPoster() {
 
 function deleteSavedPoster(event) {
   var clickedSavedPoster = event.target.closest('.mini-poster');
+  console.log(event);
+  console.log(clickedSavedPoster);
   for (i = 0; i < savedPosters.length; i++) {
     if (savedPosters[i].id === Number(clickedSavedPoster.id)) {
       savedPosters.splice(i, 1);
