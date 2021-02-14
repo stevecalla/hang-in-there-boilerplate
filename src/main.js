@@ -216,7 +216,7 @@ savedPosterGrid.addEventListener('dblclick', deleteSavedPoster);
 function createPoster() {
   var imageRandomNumber = getRandomIndex(images);
   currentPoster = new Poster(images[imageRandomNumber].url, images[imageRandomNumber].altText, titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
-  renderCoverImage(currentPoster);
+  renderCoverImage();
 }
 
 function renderCoverImage() {
