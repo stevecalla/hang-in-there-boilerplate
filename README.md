@@ -22,6 +22,13 @@ The Poster Generator website allows users to generate and save random/non-random
   * User can generate a random or custom combination of an image, quote, and title to create a "poster".
   * User can save their poster to the "saved posters" view where it will be added to an array displayed in a grid format.
   * User can delete any poster in the "saved posters" view by double clicking.
+  
+* Enhancements
+  * Refactor alt text functionality to reduce the length of the images array.
+  * Implement data validation and error handling into the form (disable button, provide error messages if data entered is not correct, etc).
+  * In the main poster view, allow users to click image, title, quote to update just that piece with another random item from the appropriate array.
+  * When a user single clicks a saved poster, create a modal to view it larger.
+  * Allow users to drag and drop saved posters into whatever order they want them to appear.
 
 * Known Issues/Bugs:
   * Buttons are sometimes not responsive when sharing on zoom call screen share mode.
