@@ -19,7 +19,7 @@ The Poster Generator website allows users to generate and save random/non-random
 
 <img width="1058" alt="Screen Shot 2021-02-14 at 11 24 59 AM" src="https://user-images.githubusercontent.com/72281855/107885414-6d7e5b00-6eb7-11eb-90ec-fde257023660.png">
 
-## Saved Page View
+## Saved Poster View
 
 <img width="1374" alt="Screen Shot 2021-02-14 at 11 27 11 AM" src="https://user-images.githubusercontent.com/72281855/107885452-a3bbda80-6eb7-11eb-851f-402d17fac80b.png">
 
