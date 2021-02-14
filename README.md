@@ -39,7 +39,7 @@ The Poster Generator website allows users to generate and save random/non-random
   * Allow users to drag and drop saved posters into whatever order they want them to appear.
 
 * Known Issues/Bugs:
-  * Form has a number of bugs because validation was not part of the base functionality. As an example, if user does not enter poster information, they can return the main page from the "show my poster" button resulting in an undefined image, title, quote.
+  * Form has a number of bugs because validation was not part of the base functionality. As an example, if user does not enter poster information on the form view, they can return the main page from the "show my poster" button resulting in an undefined image, title, quote.
   * Buttons are sometimes not responsive when sharing on zoom call screen share mode.
 
 ## Technologies
