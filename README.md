@@ -43,7 +43,5 @@ The Poster Generator website allows users to generate and save random/non-random
 
 ## Resources
 * Project Description: https://frontend.turing.io/projects/module-1/hang-in-there.html
-* Project Original GitHub Repo: https://github.com/turingschool-examples/hang-in-there-boilerplate
 * Team GitHub Repo: https://github.com/robertjosephderouin/hang-in-there-boilerplate
 * GitHub Hosted URL: https://robertjosephderouin.github.io/hang-in-there-boilerplate/
-* DTR: https://github.com/robertjosephderouin/hang-in-there-boilerplate/projects/1
