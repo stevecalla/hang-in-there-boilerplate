@@ -232,7 +232,7 @@ function getRandomIndex(inputRandomList) {
 
 function saveMyPoster(event) {
   event.preventDefault();
-  currentPoster = new Poster(inputPosterImage.value, inputPosterTitle.value, inputPosterQuote.value);
+  currentPoster = new Poster(inputPosterImage.value, "inspirational image of a" + inputPosterTitle.value, inputPosterTitle.value, inputPosterQuote.value);
   savePosterInput();
   renderMainPage();
   renderCoverImage();
