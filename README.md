@@ -47,8 +47,7 @@ The Poster Generator website allows users to generate and save random/non-random
 1. HTML
 2. CSS
 3. JavaScript
-4. Local Storage
-5. GitHub (website hosting and source code management)
+4. GitHub (website hosting and source code management)
 
 ## Contributors
 
